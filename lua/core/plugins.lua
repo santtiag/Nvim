@@ -1,63 +1,132 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
-end
+require('lazy').setup({
+    -- Plenary
+    "nvim-lua/plenary.nvim",
 
-local packer_bootstrap = ensure_packer()
+    -- NeoTree
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+            "MunifTanjim/nui.nvim",
+            -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+        }
+    },
 
-return require('packer').startup(function(use)
-  use({
-    "iamcco/markdown-preview.nvim",
-    run = "cd app && npm install",
-  })
 
-  use 'wbthomason/packer.nvim'
-  use 'tpope/vim-commentary'
-  use 'ellisonleao/gruvbox.nvim'
-  use 'dracula/vim'
-  use { "catppuccin/nvim", as = "catppuccin" }
-  use 'nvim-lualine/lualine.nvim'
-  use 'nvim-treesitter/nvim-treesitter'
-  use 'bluz71/vim-nightfly-colors'
-  use 'vim-test/vim-test'
-  use 'lewis6991/gitsigns.nvim'
-  use 'preservim/vimux'
-  use 'christoomey/vim-tmux-navigator'
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-surround'
-  use 'stevearc/oil.nvim'
-  -- completion
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'L3MON4D3/LuaSnip'
-  use 'saadparwaiz1/cmp_luasnip'
-  use "rafamadriz/friendly-snippets"
-  use "github/copilot.vim"
+    'nvim-tree/nvim-web-devicons',
+    'nvim-lualine/lualine.nvim',
+    "ellisonleao/gruvbox.nvim",
+    {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    },
+    'nvim-treesitter/nvim-treesitter',
 
-  use({
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-  })
+    -- cmp
+    'hrsh7th/nvim-cmp',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-vsnip',
+    'saadparwaiz1/cmp_luasnip',
+    'hrsh7th/vim-vsnip',
 
-  use({
-      "vinnymeller/swagger-preview.nvim",
-      run = "npm install -g swagger-ui-watcher",
-  })
+    {
+        "L3MON4D3/LuaSnip",
+        -- follow latest release.
+        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!).
+        build = "make install_jsregexp"
+    },
+    "rafamadriz/friendly-snippets",
+    {
+        'akinsho/bufferline.nvim',
+        version = "*",
+        dependencies = 'nvim-tree/nvim-web-devicons'
+    },
+    'terrortylor/nvim-comment',
+    {
+        'nvim-telescope/telescope.nvim',
+        version = '0.1.4',
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    },
+    {
+        'akinsho/toggleterm.nvim', version = "*", config = true
+    },
 
-  use({
-	  'nvim-telescope/telescope.nvim',
-	  tag = '0.1.0',
-	  requires = { {'nvim-lua/plenary.nvim'} }
-  })
+    { 'codota/tabnine-nvim', run = "./dl_binaries.sh" },
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
+    },
+    {
+        'goolord/alpha-nvim',
+        config = function()
+            require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+        end
+    },
+    {
+        "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end
+    },
 
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+    'onsails/lspkind-nvim',
+
+    {
+        'chikko80/error-lens.nvim',
+        dependencies = { 'nvim-telescope/telescope.nvim' }
+    },
+
+    -- Notify
+    'rcarriga/nvim-notify',
+
+    -- Nui
+    'MunifTanjim/nui.nvim',
+    -- Cmd Noice
+    {
+        "folke/noice.nvim",
+        event = "VeryLazy",
+        opts = {
+            -- add any options here
+        },
+        dependencies = {
+            "MunifTanjim/nui.nvim",
+            "rcarriga/nvim-notify",
+        }
+    },
+
+    -- NeoDev
+    {
+        "folke/neodev.nvim", opts = {}
+    },
+
+    -- Mini
+    {
+        'echasnovski/mini.animate', version = '*'
+    },
+    {
+        'echasnovski/mini.pairs', version = '*'
+    },
+    {
+        'echasnovski/mini.surround', version = '*'
+    },
+    {
+        'echasnovski/mini.cursorword', version = '*'
+    },
+    {
+        'echasnovski/mini.indentscope', version = '*'
+    },
+    {
+        'echasnovski/mini.indentscope', version = '*'
+    }
+
+})
