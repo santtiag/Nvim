@@ -14,10 +14,16 @@ require('lazy').setup({
         }
     },
 
-
     'nvim-tree/nvim-web-devicons',
     'nvim-lualine/lualine.nvim',
+
+    -- gruvbox
     "ellisonleao/gruvbox.nvim",
+
+    -- catppuccin
+    {
+        "catppuccin/nvim", name = "catppuccin", priority = 1000
+    },
     {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
@@ -58,7 +64,7 @@ require('lazy').setup({
         'akinsho/toggleterm.nvim', version = "*", config = true
     },
 
-    { 'codota/tabnine-nvim', run = "./dl_binaries.sh" },
+    { 'codota/tabnine-nvim',  run = "./dl_binaries.sh" },
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -68,7 +74,31 @@ require('lazy').setup({
     {
         'goolord/alpha-nvim',
         config = function()
-            require 'alpha'.setup(require 'alpha.themes.dashboard'.config)
+            local alpha = require 'alpha'
+            local dashboard = require 'alpha.themes.dashboard'
+            dashboard.section.header.val = {
+                [[  ██╗ ██╗    ███████╗ █████╗ ███╗   ██╗████████╗████████╗██╗ █████╗  ██████╗     ██╗ ██╗  ]],
+                [[ ██╔╝██╔╝    ██╔════╝██╔══██╗████╗  ██║╚══██╔══╝╚══██╔══╝██║██╔══██╗██╔════╝     ╚██╗╚██╗ ]],
+                [[██╔╝██╔╝     ███████╗███████║██╔██╗ ██║   ██║      ██║   ██║███████║██║  ███╗     ╚██╗╚██╗]],
+                [[╚██╗╚██╗     ╚════██║██╔══██║██║╚██╗██║   ██║      ██║   ██║██╔══██║██║   ██║     ██╔╝██╔╝]],
+                [[ ╚██╗╚██╗    ███████║██║  ██║██║ ╚████║   ██║      ██║   ██║██║  ██║╚██████╔╝    ██╔╝██╔╝ ]],
+                [[  ╚═╝ ╚═╝    ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝      ╚═╝   ╚═╝╚═╝  ╚═╝ ╚═════╝     ╚═╝ ╚═╝  ]],
+
+            }
+            dashboard.section.buttons.val = {
+                dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
+                dashboard.button("q", "󰅚  Quit NVIM", ":qa<CR>"),
+            }
+            local handle = io.popen('fortune')
+            local fortune = handle:read("*a")
+            handle:close()
+            dashboard.section.footer.val = fortune
+
+            dashboard.config.opts.noautocmd = true
+
+            vim.cmd [[autocmd User AlphaReady echo 'ready']]
+
+            alpha.setup(dashboard.config)
         end
     },
     {
@@ -123,10 +153,37 @@ require('lazy').setup({
         'echasnovski/mini.cursorword', version = '*'
     },
     {
-        'echasnovski/mini.indentscope', version = '*'
+        'echasnovski/mini.indentscope',
+        version = '*',
+        init = function()
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = {
+                    "help",
+                    "alpha",
+                    "dashboard",
+                    "neo-tree",
+                    "Trouble",
+                    "trouble",
+                    "lazy",
+                    "mason",
+                    "notify",
+                    "toggleterm",
+                    "lazyterm",
+                },
+                callback = function()
+                    vim.b.miniindentscope_disable = true
+                end,
+            })
+        end,
+
     },
     {
         'echasnovski/mini.indentscope', version = '*'
-    }
+    },
 
+    -- colorizer
+    'norcalli/nvim-colorizer.lua',
+    {
+        "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {}
+    }
 })

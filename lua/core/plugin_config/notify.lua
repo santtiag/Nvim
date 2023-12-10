@@ -1,1 +1,3 @@
-require("notify")("Welcome..", {title= 'Plug Nofity'})
+require("notify").setup({
+    background_colour = "#000000",
+})

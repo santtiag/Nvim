@@ -20,10 +20,6 @@ vim.cmd('set cmdheight=0')
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 -- Mapea una tecla, por ejemplo <leader>v, para abrir una pestaña vertical
 
--- Split Windows
-vim.api.nvim_set_keymap('n', '<C-Right>', ':vsplit<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-Down>', ':split<CR>', { noremap = true, silent = true })
-
 -- Save
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
 
@@ -33,8 +29,12 @@ vim.api.nvim_set_keymap('n', '<C-q>', ':q<CR>', { noremap = true, silent = true 
 -- Close Tabs
 vim.api.nvim_set_keymap('n', '<C-w>', ':BufferLinePickClose<CR>', { noremap = true, silent = true })
 
--- Switch Tabs
+-- Change Tabs
 vim.api.nvim_set_keymap('n', 'L', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'H', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })
 
-
+-- Change to windows
+vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true, desc = 'Go to left window' })
+vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true, desc = 'Go to lower window' })
+vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true, desc = 'Go to upper window' })
+vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true, desc = 'Go to right window' })

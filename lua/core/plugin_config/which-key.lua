@@ -90,14 +90,21 @@ require("which-key").setup {
 }
 
 -- vim.api.nvim_set_keymap('n', 'nn', ':e ', { noremap = true, silent = true, desc = 'New File' })
+-- Split Windows
+-- vim.api.nvim_set_keymap('n', '<C-Right>', ':vsplit<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<C-Down>', ':split<CR>', { noremap = true, silent = true })
+
 -- Which-Key
 local wk = require("which-key")
 
 wk.register({
-    ["<leader>f"] = { name = "+- Format -++" },
+    ["<leader>f"] = { name = "+- Format -+" },
     -- MarkDown
     ["mm"] = { '<Plug>MarkdownPreview', 'Open MarkDown' },
     ["ms"] = { "<Plug>MarkdownPreviewStop", "Close MarkDown" },
-    -- Create new file
-    ['nn'] = { ':e ', 'New File' },
+
+    -- Exit
+    ["<leader>q"] = { "<cmd>qa<cr>", "Exit" },
+    ["<leader>|"] = { "<cmd>vsplit<cr>", "Horizontal" },
+    ["<leader>-"] = { "<cmd>split<cr>", "Vertical" },
 })
