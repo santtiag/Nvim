@@ -107,4 +107,5 @@ wk.register({
     ["<leader>q"] = { "<cmd>qa<cr>", "Exit" },
     ["<leader>|"] = { "<cmd>vsplit<cr>", "Horizontal" },
     ["<leader>-"] = { "<cmd>split<cr>", "Vertical" },
+    ["<leader>fl"] = { "<cmd>CellularAutomaton make_it_rain<CR>", "Cellular Automaton" },
 })

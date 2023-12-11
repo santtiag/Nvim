@@ -64,7 +64,7 @@ require('lazy').setup({
         'akinsho/toggleterm.nvim', version = "*", config = true
     },
 
-    { 'codota/tabnine-nvim',  run = "./dl_binaries.sh" },
+    { 'codota/tabnine-nvim', run = "./dl_binaries.sh" },
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -181,9 +181,29 @@ require('lazy').setup({
         'echasnovski/mini.indentscope', version = '*'
     },
 
-    -- colorizer
-    'norcalli/nvim-colorizer.lua',
+    -- colorizer - NvChad
+    'NvChad/nvim-colorizer.lua',
+
+    -- indent-blankline
     {
         "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {}
-    }
+    },
+
+    -- tailwind-colorizer
+    {
+        "roobert/tailwindcss-colorizer-cmp.nvim",
+        -- optionally, override the default options:
+        config = function()
+            require("tailwindcss-colorizer-cmp").setup({
+                color_square_width = 2,
+            })
+        end
+    },
+
+    -- The best plugin ever
+    'eandrju/cellular-automaton.nvim',
+
+
+
+
 })
