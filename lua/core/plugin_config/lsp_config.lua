@@ -40,7 +40,7 @@ require('lspconfig').html.setup({
     capabilities = capabilities,
 })
 require 'lspconfig'.lua_ls.setup {}
-require'lspconfig'.tailwindcss.setup{}
+require 'lspconfig'.tailwindcss.setup {}
 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -64,19 +64,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
         vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
         vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', '<leader>f', function()
+        vim.keymap.set('n', '<leader>ff', function()
             vim.lsp.buf.format { async = true }
         end, opts)
     end,
 })
 
 vim.fn.sign_define('DiagnosticSignError', { text = '', texthl = 'DiagnosticSignError' })
-vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
+vim.fn.sign_define('DiagnosticSignWarn', { text = '', texthl = 'DiagnosticSignWarn' })
 vim.fn.sign_define('DiagnosticSignInfo', { text = '', texthl = 'DiagnosticSignInfo' })
 vim.fn.sign_define('DiagnosticSignHint', { text = '󰌶', texthl = 'DiagnosticSignHint' })
 vim.diagnostic.config({
-  virtual_text = {
-    prefix = '', -- Could be '●', '▎', 'x'
-  }
+    virtual_text = {
+        prefix = '●',
+        -- Could be '●', '▎', 'x'
+    }
 })
-

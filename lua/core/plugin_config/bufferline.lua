@@ -19,19 +19,19 @@ bufferline.setup {
                 local hint = #vim.diagnostic.get(0, { severity = seve.HINT })
 
                 if error ~= 0 then
-                    table.insert(result, { text = "  " .. error, fg = "#EC5241" })
+                    table.insert(result, { text = "  " .. error, fg = "#EC5241" })
                 end
 
                 if warning ~= 0 then
-                    table.insert(result, { text = "  " .. warning, fg = "#EFB839" })
+                    table.insert(result, { text = "  " .. warning, fg = "#EFB839" })
                 end
 
                 if hint ~= 0 then
-                    table.insert(result, { text = "  " .. hint, fg = "#A3BA5E" })
+                    table.insert(result, { text = " 󰌶 " .. hint, fg = "#A3BA5E" })
                 end
 
                 if info ~= 0 then
-                    table.insert(result, { text = "  " .. info, fg = "#7EA9A7" })
+                    table.insert(result, { text = "  " .. info, fg = "#7EA9A7" })
                 end
                 return result
             end,
@@ -43,6 +43,13 @@ bufferline.setup {
                 highlight = "Directory",
                 separator = true -- use a "true" to enable the default, or set your own character
             }
-        }
+        },
+        buffer_close_icon = "⚔︎",
+        diagnostics = "nvim_lsp",
+        show_buffer_icons = true,
+        diagnostics_indicator = function(count, level)
+            local icon = level:match("error") and "" or ""
+            return icon .. count
+        end,
     }
 }
