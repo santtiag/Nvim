@@ -98,7 +98,7 @@ require("which-key").setup {
 local wk = require("which-key")
 
 wk.register({
-    ["<leader>f"] = { name = "+- Format -+" },
+    ["<leader>f"] = { name = "Search" },
     -- MarkDown
     ["mm"] = { '<Plug>MarkdownPreview', 'Open MarkDown' },
     ["ms"] = { "<Plug>MarkdownPreviewStop", "Close MarkDown" },

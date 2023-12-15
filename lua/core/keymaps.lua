@@ -21,7 +21,7 @@ vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 -- Mapea una tecla, por ejemplo <leader>v, para abrir una pestaña vertical
 
 -- Save
-vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
 
 -- Exit
 vim.api.nvim_set_keymap('n', '<C-q>', ':q<CR>', { noremap = true, silent = true })
