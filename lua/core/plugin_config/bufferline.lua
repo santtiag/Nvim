@@ -41,6 +41,7 @@ bufferline.setup {
                 filetype = "neo-tree",
                 text = "File Explorer",
                 highlight = "Directory",
+                text_alig = 'left',
                 separator = true -- use a "true" to enable the default, or set your own character
             }
         },

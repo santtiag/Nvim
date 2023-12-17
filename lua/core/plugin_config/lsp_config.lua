@@ -67,7 +67,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', '<C-s>', function()
             vim.lsp.buf.format()
             vim.cmd('w')
-            -- { async = true }
         end, opts)
     end,
 })
