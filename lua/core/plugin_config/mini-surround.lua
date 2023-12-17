@@ -1,22 +1,21 @@
 require('mini.surround').setup(
--- No need to copy this inside `setup()`. Will be used automatically.
     {
         -- Add custom surroundings to be used on top of builtin ones. For more
         -- information with examples, see `:h MiniSurround.config`.
         custom_surroundings = nil,
 
         -- Duration (in ms) of highlight when calling `MiniSurround.highlight()`
-        highlight_duration = 500,
+        highlight_duration = 1000,
 
         -- Module mappings. Use `''` (empty string) to disable one.
         mappings = {
-            add = 'sa',    -- Add surrounding in Normal and Visual modes
-            delete = 'sd', -- Delete surrounding
-            find = 'sf',   -- Find surrounding (to the right)
-            find_left = 'sF', -- Find surrounding (to the left)
-            highlight = 'sh', -- Highlight surrounding
-            replace = 'sr', -- Replace surrounding
-            update_n_lines = 'sn', -- Update `n_lines`
+            add = 'as',    -- Add surrounding in Normal and Visual modes
+            delete = 'ad', -- Delete surrounding
+            find = 'af',   -- Find surrounding (to the right)
+            find_left = 'aF', -- Find surrounding (to the left)
+            highlight = 'ah', -- Highlight surrounding
+            replace = 'ar', -- Replace surrounding
+            update_n_lines = 'an', -- Update `n_lines`
 
             suffix_last = 'l', -- Suffix to search with "prev" method
             suffix_next = 'n', -- Suffix to search with "next" method

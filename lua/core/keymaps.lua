@@ -20,14 +20,19 @@ vim.cmd('set cmdheight=0')
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
 -- Mapea una tecla, por ejemplo <leader>v, para abrir una pestaña vertical
 
--- Save
--- vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+function CloseTab()
+    vim.cmd(':bdelete')
+    vim.cmd(':bfirst')
+end
+
+-- Close Tab
+vim.api.nvim_set_keymap('n', '<C-w>', '<cmd>lua CloseTab()<CR>', { noremap = true, silent = true })
 
 -- Exit
 vim.api.nvim_set_keymap('n', '<C-q>', ':q<CR>', { noremap = true, silent = true })
 
--- Close Tabs
-vim.api.nvim_set_keymap('n', '<C-w>', ':BufferLinePickClose<CR>', { noremap = true, silent = true })
+-- Save
+vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
 
 -- Change Tabs
 vim.api.nvim_set_keymap('n', 'L', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })

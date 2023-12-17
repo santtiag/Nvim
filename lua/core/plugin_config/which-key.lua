@@ -99,13 +99,65 @@ local wk = require("which-key")
 
 wk.register({
     ["<leader>f"] = { name = "Search" },
+    ["<leader>F"] = { name = "Format" },
     -- MarkDown
-    ["mm"] = { '<Plug>MarkdownPreview', 'Open MarkDown' },
-    ["ms"] = { "<Plug>MarkdownPreviewStop", "Close MarkDown" },
+    ["mo"] = { '<Plug>MarkdownPreview', 'Open MarkDown' },
+    ["mc"] = { "<Plug>MarkdownPreviewStop", "Close MarkDown" },
 
     -- Exit
     ["<leader>q"] = { "<cmd>qa<cr>", "Exit" },
-    ["<leader>|"] = { "<cmd>vsplit<cr>", "Horizontal" },
-    ["<leader>-"] = { "<cmd>split<cr>", "Vertical" },
-    ["<leader>fl"] = { "<cmd>CellularAutomaton make_it_rain<CR>", "Cellular Automaton" },
+
+    -- Split windows
+    ["<leader>w"] = { name = "Window" },
+    ["<leader>w|"] = { "<cmd>vsplit<cr>", "Horizontal" },
+    ["<leader>w-"] = { "<cmd>split<cr>", "Vertical" },
+
+    -- Cellular Automaton
+    ["<leader>c"] = { name = "Cellular Automaton" },
+    ["<leader>cm"] = { "<cmd>CellularAutomaton make_it_rain<CR>", "make_it_rain" },
+    ["<leader>cg"] = { "<cmd>CellularAutomaton game_of_life<CR>", "game_of_life" },
+    ["<leader>cs"] = { "<cmd>CellularAutomaton scramble<CR>", "scramble" },
+
+    --LazyGit
+    ["<leader>g"] = { name = "Git" },
+    ["<leader>gg"] = { "<cmd>LazyGit<CR>", "LazyGit" },
+    ["<leader>gc"] = { "<cmd>LazyGitConfig<CR>", "LazyGitConfig" },
+    ["<leader>gr"] = { "<cmd>LazyGitCurrentFile<CR>", "LazyGitCurrentFile" },
+    ["<leader>gf"] = { "<cmd>LazyGitFilter<CR>", "LazyGitFilter" },
+    ["<leader>gh"] = { "<cmd>LazyGitFilterCurrentFile<CR>", "LazyGitFilterCurrentFile" },
+
+    -- Bufferline
+    ["<leader>b"] = { name = "Bufferline" },
+
+    ["<leader>bc"] = { name = "Close" },
+    ["<leader>bcl"] = { "<cmd>BufferLineCloseLeft<CR>", "Left" },
+    ["<leader>bco"] = { "<cmd>BufferLineCloseOthers<CR>", "Others" },
+    ["<leader>bcr"] = { "<cmd>BufferLineCloseRight<CR>", "Right" },
+
+    ["<leader>by"] = { name = "Cycle" },
+    ["<leader>byn"] = { "<cmd>BufferLineCycleNext<CR>", "Next" },
+    ["<leader>byp"] = { "<cmd>BufferLineCyclePrev<CR>", "Prev" },
+
+    ["<leader>bg"] = { name = "Group" },
+    ["<leader>bgc"] = { "<cmd>BufferLineGroupClose<CR>", "Close" },
+    ["<leader>bgt"] = { "<cmd>BufferLineGroupToggle<CR>", "Toggle" },
+
+
+    ["<leader>bm"] = { name = "Move" },
+    ["<leader>bmn"] = { "<cmd>BufferLineMoveNext<CR>", "Next" },
+    ["<leader>bmp"] = { "<cmd>BufferLineMovePrev<CR>", "Prev" },
+
+
+    ["<leader>bp"] = { "<cmd>BufferLinePick<CR>", "Pick" },
+    ["<leader>bP"] = { "<cmd>BufferLinePickClose<CR>", "Pick Close" },
+
+    ["<leader>bs"] = { name = "SortBy" },
+    ["<leader>bsd"] = { "<cmd>BufferLineSortByDirectory<CR>", "Directory" },
+    ["<leader>bse"] = { "<cmd>BufferLineSortByExtension<CR>", "Extension" },
+    ["<leader>bsr"] = { "<cmd>BufferLineSortByRelativeDirectory<CR>", "RelativeDirectory" },
+    ["<leader>bst"] = { "<cmd>BufferLineSortByTabs<CR>", "Tabs" },
+
+
+    ["<leader>bt"] = { "<cmd>BufferLineTogglePin<CR>", "Toggle Pin" },
+
 })

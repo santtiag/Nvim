@@ -41,10 +41,15 @@ bufferline.setup {
                 filetype = "neo-tree",
                 text = "File Explorer",
                 highlight = "Directory",
+                text_alig = 'left',
                 separator = true -- use a "true" to enable the default, or set your own character
             }
         },
+        separator_style = "slope", -- | "thin" | "slant" | "thick" | { 'any', 'any' },
         buffer_close_icon = "⚔︎",
+        indicator = {
+            style = 'underline',
+        },
         diagnostics = "nvim_lsp",
         show_buffer_icons = true,
         diagnostics_indicator = function(count, level)
