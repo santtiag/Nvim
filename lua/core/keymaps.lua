@@ -34,9 +34,6 @@ vim.api.nvim_set_keymap('n', '<C-q>', ':q<CR>', { noremap = true, silent = true 
 -- Save
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
 
--- Close Tabs
--- vim.api.nvim_set_keymap('n', '<C-w>', ':BufferLinePickClose<CR>', { noremap = true, silent = true })
-
 -- Change Tabs
 vim.api.nvim_set_keymap('n', 'L', ':BufferLineCycleNext<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', 'H', ':BufferLineCyclePrev<CR>', { noremap = true, silent = true })

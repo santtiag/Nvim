@@ -119,12 +119,12 @@ wk.register({
     ["<leader>cs"] = { "<cmd>CellularAutomaton scramble<CR>", "scramble" },
 
     --LazyGit
-    ["<leader>g"] = { name = "Git" },
-    ["<leader>gg"] = { "<cmd>LazyGit<CR>", "LazyGit" },
-    ["<leader>gc"] = { "<cmd>LazyGitConfig<CR>", "LazyGitConfig" },
-    ["<leader>gr"] = { "<cmd>LazyGitCurrentFile<CR>", "LazyGitCurrentFile" },
-    ["<leader>gf"] = { "<cmd>LazyGitFilter<CR>", "LazyGitFilter" },
-    ["<leader>gh"] = { "<cmd>LazyGitFilterCurrentFile<CR>", "LazyGitFilterCurrentFile" },
+    -- ["<leader>g"] = { name = "Git" },
+    -- ["<leader>gg"] = { "<cmd>LazyGit<CR>", "LazyGit" },
+    -- ["<leader>gc"] = { "<cmd>LazyGitConfig<CR>", "LazyGitConfig" },
+    -- ["<leader>gr"] = { "<cmd>LazyGitCurrentFile<CR>", "LazyGitCurrentFile" },
+    -- ["<leader>gf"] = { "<cmd>LazyGitFilter<CR>", "LazyGitFilter" },
+    -- ["<leader>gh"] = { "<cmd>LazyGitFilterCurrentFile<CR>", "LazyGitFilterCurrentFile" },
 
     -- Bufferline
     ["<leader>b"] = { name = "Bufferline" },

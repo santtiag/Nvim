@@ -225,13 +225,4 @@ require('lazy').setup({
     -- gitSign
     "lewis6991/gitsigns.nvim",
 
-    -- LazyGit
-    {
-        "kdheepak/lazygit.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-        },
-    },
-
-
 })
