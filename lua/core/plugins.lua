@@ -218,6 +218,12 @@ require('lazy').setup({
             { "<c-s>", mode = { "c" },           function() require("flash").toggle() end,            desc = "Toggle Flash Search" },
         },
     },
+<<<<<<< HEAD
+=======
+
+    -- gitSign
+    "lewis6991/gitsigns.nvim",
+>>>>>>> origin/main
 
     -- gitSign
     "lewis6991/gitsigns.nvim",
