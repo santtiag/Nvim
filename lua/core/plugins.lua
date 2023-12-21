@@ -89,10 +89,10 @@ require('lazy').setup({
                 dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
                 dashboard.button("q", "󰅚  Quit NVIM", ":qa<CR>"),
             }
-            local handle = io.popen('fortune')
-            local fortune = handle:read("*a")
-            handle:close()
-            dashboard.section.footer.val = fortune
+            -- local handle = io.popen('fortune')
+            -- local fortune = handle:read("*a")
+            -- handle:close()
+            -- dashboard.section.footer.val = fortune
 
             dashboard.config.opts.noautocmd = true
 
@@ -222,7 +222,18 @@ require('lazy').setup({
     -- gitSign
     "lewis6991/gitsigns.nvim",
 
-    -- gitSign
-    "lewis6991/gitsigns.nvim",
+    -- vim-visual-multi
+    "mg979/vim-visual-multi",
+
+    -- treeSJ
+    {
+        'Wansmer/treesj',
+        keys = { '<space>m', '<space>j', '<space>s' },
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    },
+
+    -- git blame
+    'f-person/git-blame.nvim'
+
 
 })

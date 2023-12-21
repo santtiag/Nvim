@@ -108,9 +108,9 @@ wk.register({
     ["<leader>q"] = { "<cmd>qa<cr>", "Exit" },
 
     -- Split windows
-    ["<leader>w"] = { name = "Window" },
-    ["<leader>w|"] = { "<cmd>vsplit<cr>", "Horizontal" },
-    ["<leader>w-"] = { "<cmd>split<cr>", "Vertical" },
+    -- ["<leader>w"] = { name = "Window" },
+    -- ["<leader>w|"] = { "<cmd>vsplit<cr>", "Horizontal" },
+    -- ["<leader>w-"] = { "<cmd>split<cr>", "Vertical" },
 
     -- Cellular Automaton
     ["<leader>c"] = { name = "Cellular Automaton" },
@@ -160,4 +160,20 @@ wk.register({
 
     ["<leader>bt"] = { "<cmd>BufferLineTogglePin<CR>", "Toggle Pin" },
 
+
+
+    -- Change Windowsmap
+    ["<leader>ww"] = { "<C-W>p", "Other window" },
+    ["<leader>wd"] = { "<C-W>c", "Delete window" },
+    ["<leader>w-"] = { "<C-W>s", "Split window below" },
+    ["<leader>w|"] = { "<C-W>v", "Split window right" },
+
+
+
+
+    -- map("n", "<leader>wd", "<C-W>c", { desc = "Delete window", remap = true })
+    -- map("n", "<leader>w-", "<C-W>s", { desc = "Split window below", remap = true })
+    -- map("n", "<leader>w|", "<C-W>v", { desc = "Split window right", remap = true })
+    -- map("n", "<leader>-", "<C-W>s", { desc = "Split window below", remap = true })
+    -- map("n", "<leader>|", "<C-W>v", { desc = "Split window right", remap = true })
 })

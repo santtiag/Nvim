@@ -9,13 +9,13 @@ require('mini.surround').setup(
 
         -- Module mappings. Use `''` (empty string) to disable one.
         mappings = {
-            add = 'as',    -- Add surrounding in Normal and Visual modes
-            delete = 'ad', -- Delete surrounding
-            find = 'af',   -- Find surrounding (to the right)
-            find_left = 'aF', -- Find surrounding (to the left)
-            highlight = 'ah', -- Highlight surrounding
-            replace = 'ar', -- Replace surrounding
-            update_n_lines = 'an', -- Update `n_lines`
+            add = 'qs',    -- Add surrounding in Normal and Visual modes
+            delete = 'qd', -- Delete surrounding
+            find = 'qf',   -- Find surrounding (to the right)
+            find_left = 'qF', -- Find surrounding (to the left)
+            highlight = 'qh', -- Highlight surrounding
+            replace = 'qr', -- Replace surrounding
+            update_n_lines = 'qn', -- Update `n_lines`
 
             suffix_last = 'l', -- Suffix to search with "prev" method
             suffix_next = 'n', -- Suffix to search with "next" method

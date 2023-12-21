@@ -45,7 +45,7 @@ bufferline.setup {
                 separator = true -- use a "true" to enable the default, or set your own character
             }
         },
-        separator_style = "slope", -- | "thin" | "slant" | "thick" | { 'any', 'any' },
+        separator_style = "slope", --"padded_slope" | "thin" | "slant" | "thick" | { 'any', 'any' },
         buffer_close_icon = "⚔︎",
         indicator = {
             style = 'underline',
