@@ -233,7 +233,14 @@ require('lazy').setup({
     },
 
     -- git blame
-    'f-person/git-blame.nvim'
+    'f-person/git-blame.nvim',
 
+    -- SmoothCursor
+    {
+        'gen740/SmoothCursor.nvim',
+        config = function()
+            require('smoothcursor').setup()
+        end
+    },
 
 })
