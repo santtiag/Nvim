@@ -17,9 +17,6 @@ require('lazy').setup({
     'nvim-tree/nvim-web-devicons',
     'nvim-lualine/lualine.nvim',
 
-    -- gruvbox
-    "ellisonleao/gruvbox.nvim",
-
     -- catppuccin
     {
         "catppuccin/nvim", name = "catppuccin", priority = 1000
@@ -60,17 +57,14 @@ require('lazy').setup({
         version = '0.1.4',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
-    {
-        'akinsho/toggleterm.nvim', version = "*", config = true
-    },
 
-    { 'codota/tabnine-nvim', run = "./dl_binaries.sh" },
     {
         "iamcco/markdown-preview.nvim",
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         ft = { "markdown" },
         build = function() vim.fn["mkdp#util#install"]() end,
     },
+
     {
         'goolord/alpha-nvim',
         config = function()
@@ -111,9 +105,15 @@ require('lazy').setup({
 
     'onsails/lspkind-nvim',
 
+    -- Trouble
     {
-        'chikko80/error-lens.nvim',
-        dependencies = { 'nvim-telescope/telescope.nvim' }
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        }
     },
 
     -- Notify
@@ -140,9 +140,6 @@ require('lazy').setup({
     },
 
     -- Mini
-    {
-        'echasnovski/mini.animate', version = '*'
-    },
     {
         'echasnovski/mini.pairs', version = '*'
     },
@@ -230,6 +227,9 @@ require('lazy').setup({
         'Wansmer/treesj',
         keys = { '<space>m', '<space>j', '<space>s' },
         dependencies = { 'nvim-treesitter/nvim-treesitter' },
+        config = function()
+            require('treesj').setup({ --[[ your config ]] })
+        end,
     },
 
     -- git blame
@@ -242,5 +242,4 @@ require('lazy').setup({
             require('smoothcursor').setup()
         end
     },
-
 })
