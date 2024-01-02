@@ -54,7 +54,7 @@ require('lazy').setup({
     'terrortylor/nvim-comment',
     {
         'nvim-telescope/telescope.nvim',
-        version = '0.1.4',
+        version = '0.1.5',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
 
@@ -109,11 +109,6 @@ require('lazy').setup({
     {
         "folke/trouble.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
-        opts = {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
-        }
     },
 
     -- Notify

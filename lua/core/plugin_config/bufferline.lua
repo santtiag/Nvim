@@ -27,7 +27,7 @@ bufferline.setup {
                 end
 
                 if hint ~= 0 then
-                    table.insert(result, { text = " 󰌶 " .. hint, fg = "#A3BA5E" })
+                    table.insert(result, { text = "  " .. hint, fg = "#A3BA5E" })
                 end
 
                 if info ~= 0 then
@@ -45,7 +45,7 @@ bufferline.setup {
                 separator = true -- use a "true" to enable the default, or set your own character
             }
         },
-        separator_style = "slope", --"padded_slope" | "thin" | "slant" | "thick" | { 'any', 'any' },
+        separator_style = "thin", --"padded_slope" | "thin" | "slant" | "thick" | { 'any', 'any' },
         buffer_close_icon = "⚔︎",
         indicator = {
             style = 'underline',
