@@ -37,9 +37,10 @@ cmp.setup({
                 nvim_lsp = '󰞶',
                 nvim_lua = "",
                 zsh = "",
-                vsnip = "",
+                luasnip = '',
+                -- vsnip = "",
                 path = "󰝰",
-                buffer = "󰽘",
+                buffer =   "󰽘",
                 treesitter = "",
             })[entry.source.name]
             return vim_item

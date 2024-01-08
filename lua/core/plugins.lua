@@ -34,9 +34,7 @@ require('lazy').setup({
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-vsnip',
     'saadparwaiz1/cmp_luasnip',
-    'hrsh7th/vim-vsnip',
 
     {
         "L3MON4D3/LuaSnip",
@@ -81,7 +79,11 @@ require('lazy').setup({
             }
             dashboard.section.buttons.val = {
                 dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
-                dashboard.button("q", "󰅚  Quit NVIM", ":qa<CR>"),
+                dashboard.button("SPC f f", "󰈞  Find File", ":Telescope fd<CR>"),
+                dashboard.button("SPC f r", "󰈢  Recently Opened Files", ":Telescope oldfiles<CR>"),
+                dashboard.button("SPC f g", "󰷊  Find Word", ":Telescope live_grep<CR>"),
+                dashboard.button("SPC f h", "󰡯  Help Tags", ":Telescope help_tags<CR>"),
+                dashboard.button("q", "󰅚  Quit", ":qa<CR>"),
             }
             -- local handle = io.popen('fortune')
             -- local fortune = handle:read("*a")
@@ -214,27 +216,23 @@ require('lazy').setup({
     -- gitSign
     "lewis6991/gitsigns.nvim",
 
-    -- vim-visual-multi
-    "mg979/vim-visual-multi",
-
     -- treeSJ
     {
         'Wansmer/treesj',
-        keys = { '<space>m', '<space>j', '<space>s' },
         dependencies = { 'nvim-treesitter/nvim-treesitter' },
         config = function()
-            require('treesj').setup({ --[[ your config ]] })
+            require('treesj').setup({
+                use_default_keymaps = false,
+                --[[ your config ]]
+            })
         end,
     },
-
-    -- git blame
-    'f-person/git-blame.nvim',
 
     -- SmoothCursor
     {
         'gen740/SmoothCursor.nvim',
-        config = function()
-            require('smoothcursor').setup()
-        end
     },
+
+    -- BigFile 
+    "LunarVim/bigfile.nvim",
 })

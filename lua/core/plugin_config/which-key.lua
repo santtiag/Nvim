@@ -89,17 +89,17 @@ require("which-key").setup {
     }
 }
 
--- vim.api.nvim_set_keymap('n', 'nn', ':e ', { noremap = true, silent = true, desc = 'New File' })
--- Split Windows
--- vim.api.nvim_set_keymap('n', '<C-Right>', ':vsplit<CR>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<C-Down>', ':split<CR>', { noremap = true, silent = true })
-
 -- Which-Key
 local wk = require("which-key")
 
 wk.register({
+
+    ["<leader>m"] = { "<cmd>TSToggle<CR>", "TreeSJ Toogle" },
+
+    ["<leader>l"] = { '', "Lsp Config" },
     ["<leader>f"] = { name = "Find" },
     ["<leader>x"] = { name = "Trouble" },
+
     -- MarkDown
     ["mo"] = { '<Plug>MarkdownPreview', 'Open MarkDown' },
     ["mc"] = { "<Plug>MarkdownPreviewStop", "Close MarkDown" },
@@ -157,8 +157,8 @@ wk.register({
 
     -- Split windows
     ["<leader>w"] = { name = "Window" },
-    ["<leader>w|"] = { "<cmd>vsplit<cr>", "Horizontal" },
-    ["<leader>w-"] = { "<cmd>split<cr>", "Vertical" },
+    ["<leader>w|"] = { "<C-W>v", "Horizontal" },
+    ["<leader>w-"] = { "<C-W>s", "Vertical" },
     ["<leader>ww"] = { "<C-W>p", "Other window" },
     ["<leader>wd"] = { "<C-W>c", "Delete window" },
 
